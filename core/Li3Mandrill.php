@@ -69,12 +69,8 @@ class Li3Mandrill extends \lithium\core\StaticObject {
     public static function run( $name, $args ) {
         $mandrill = static::getInstance();
 
-        try {
-            $method = array_shift( $args );
-            return call_user_func_array( array( $mandrill->$name, $method ), $args );
-        } catch( Exception $e ) {
-            return false;
-        }
+        $method = array_shift( $args );
+        return call_user_func_array( array( $mandrill->$name, $method ), $args );
     }
 
 
